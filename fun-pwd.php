@@ -70,10 +70,11 @@ function checkFourthRule($password) {
 
         if(in_array($password[i], $specialChars)) {
 
-            $fourthRule = true;
+            return true;
         }
     }
     echo "La password deve avere almeno carattere speciale\n";
+    return false;
 }
 
 // $fourthRule = checkFourthRule($password);
@@ -101,4 +102,33 @@ function checkPassword() {
 
 checkPassword();
 
-?>
+
+// SELFWORK
+
+
+do {
+
+    $password = readline("Inserisci la password: ");
+
+    if (!preg_match('/^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%&*])[A-Za-z0-9@#$%&*]{8,}$/', $password)) {
+
+        echo "La password non è valida. Deve rispettare le seguenti regole:\n";
+
+        echo "- Deve essere lunga almeno 8 caratteri\n";
+
+        echo "- Deve contenere almeno una lettera maiuscola\n";
+
+        echo "- Deve contenere almeno un numero\n";
+
+        echo "- Deve contenere almeno un carattere speciale (!@#$%^&*)\n";
+
+    } 
+    else {
+        echo "La password è valida\n";
+
+        break; 
+    }
+
+}
+while (true);
+
